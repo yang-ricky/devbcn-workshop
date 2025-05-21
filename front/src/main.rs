@@ -8,15 +8,11 @@ use dioxus::prelude::*;
 use models::FilmModalVisibility;
 use shared::models::Film;
 
+const API_BASE_URL: &str = "http://127.0.0.1:8000";  // 可以通过环境变量配置
 const API_ENDPOINT: &str = "api/v1";
 
 fn films_endpoint() -> String {
-    let window = web_sys::window().expect("no global `window` exists");
-    let location = window.location();
-    let host = location.host().expect("should have a host");
-    let protocol = location.protocol().expect("should have a protocol");
-    let endpoint = format!("{}//{}/{}", protocol, host, API_ENDPOINT);
-    format!("{}/films", endpoint)
+    format!("{}/{}/films", API_BASE_URL, API_ENDPOINT)
 }
 
 async fn get_films() -> Vec<Film> {

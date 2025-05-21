@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build:css": "tailwindcss -i ./input.css -o ./public/assets/tailwind.css --watch"
+  },
   "devDependencies": {
     "tailwindcss-animated": "^1.0.1"
   }

@@ -11,7 +11,7 @@ pub fn Footer(cx: Scope) -> Element {
                 img {
                     class: "h-full w-auto",
                     alt: "DevBcn",
-                    src: "devbcn.png",
+                    src: "/assets/devbcn.png",
                     "loading": "lazy"
                 }
             }
@@ -34,7 +34,7 @@ pub fn Footer(cx: Scope) -> Element {
                 img {
                     class: "h-full w-auto",
                     alt: "BcnRust",
-                    src: "bcnrust.png",
+                    src: "/assets/bcnrust.png",
                     "loading": "lazy"
                 }
             }

@@ -18,6 +18,9 @@ asset_dir = "public"
 # HTML title tag content
 title = "🦀 | Rusty Films"
 
+# 添加静态资源配置
+asset_base = "/assets"
+
 [web.watcher]
 
 # when watcher trigger, regenerate the `index.html`
@@ -30,7 +33,7 @@ watch_path = ["src", "public"]
 [web.resource]
 
 # CSS style file
-style = ["tailwind.css"]
+style = ["/assets/tailwind.css"]
 
 # Javascript code file
 script = []
@@ -40,7 +43,7 @@ script = []
 # serve: [dev-server] only
 
 # CSS style file
-style = []
+style = ["/assets/tailwind.css"]
 
 # Javascript code file
 script = []

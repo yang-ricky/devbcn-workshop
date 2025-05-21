@@ -3,6 +3,8 @@ use actix_web::web::{self, ServiceConfig};
 use shuttle_actix_web::ShuttleActixWeb;
 use shuttle_runtime::CustomError;
 use sqlx::Executor;
+use actix_cors::Cors;
+use actix_web::http::header;
 
 #[shuttle_runtime::main]
 async fn actix_web(
@@ -19,8 +21,16 @@ async fn actix_web(
 
     // start the service
     let config = move |cfg: &mut ServiceConfig| {
+        let cors = Cors::default()
+            .allowed_origin("http://127.0.0.1:8080")
+            .allowed_methods(vec!["GET", "POST", "PUT", "DELETE"])
+            .allowed_headers(vec![header::AUTHORIZATION, header::ACCEPT, header::CONTENT_TYPE])
+            .supports_credentials()
+            .max_age(3600);
+
         cfg.service(
             web::scope("/api")
+                .wrap(cors)
                 .app_data(film_repository)
                 .configure(api_lib::health::service)
                 .configure(
