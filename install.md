@@ -10,3 +10,9 @@
 ## 运行
 - 根目录下, cargo shuttle run
 - front目录下,  dx serve --platform web
+
+## 资源
+- https://github.com/Bechma/realworld-actix-fullstack
+- https://github.com/fairingrey/actix-realworld-example-app
+- https://github.com/jetli/rust-yew-realworld-example-app
+- https://github.com/davidpdrsn/realworld-axum-sqlx
